@@ -1,0 +1,5 @@
+# Instaladores NÃO vão para o Git: são publicados nos Releases (veja README.md / publicar.ps1)
+SWs/
+*.exe
+*.msi
+*.zip

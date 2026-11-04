@@ -1,0 +1,25 @@
+{
+  "links": [
+    {
+      "id": "loop-qa",
+      "title": "Loop do QA",
+      "description": "Página de trabalho do time no Microsoft Loop",
+      "url": "https://loop.cloud.microsoft/p/eyJ3Ijp7InUiOiJodHRwczovL2FsbGlhZ2V0ZWNoLnNoYXJlcG9pbnQuY29tLz9uYXY9Y3owbE1rWW1aRDFpSVdWTlZIRjJha1l3UzFWaGFsSjFWWE5sYjFCRGN6QlFjSE54TmpORFUwSlFiamh6WnpCVk1uQmZkRGxZTjA4eFgyVjFkaTFSTjJWQmFFVkZla0ZzTmtVbVpqMHdNVFJCV0V3MVVWSlRVMFl6VGswMFZrUTNOVUpMVUZwQk16TTNTRUphTWtRekptTTlKbVpzZFdsa1BURSUzRCIsInIiOmZhbHNlfSwicCI6eyJ1IjoiaHR0cHM6Ly9hbGxpYWdldGVjaC5zaGFyZXBvaW50LmNvbS86Zmw6L3IvY29udGVudHN0b3JhZ2UvQ1NQX2JlZWFjNDc4LTc0MzEtNDYyOS1hMzQ2LWU1MmM3YTgzYzJiMy9Eb2N1bWVudCUyMExpYnJhcnkvTG9vcEFwcERhdGEvU2VtJTIwdCVDMyVBRHR1bG8ubG9vcD9kPXdkOWUzZTUyNDhhYTU0MjdkOTYzMDUxNjRiOTRiMmVkMSZjc2Y9MSZ3ZWI9MSZuYXY9Y3owbE1rWmpiMjUwWlc1MGMzUnZjbUZuWlNVeVJrTlRVRjlpWldWaFl6UTNPQzAzTkRNeExUUTJNamt0WVRNME5pMWxOVEpqTjJFNE0yTXlZak1tWkQxaUlXVk5WSEYyYWtZd1MxVmhhbEoxVlhObGIxQkRjekJRY0hOeE5qTkRVMEpRYmpoelp6QlZNbkJmZERsWU4wOHhYMlYxZGkxUk4yVkJhRVZGZWtGc05rVW1aajB3TVRSQldFdzFVVkpGTkZoU05WUktUVXRRVmtKS1RVMURVazFUTkZWWFRGZFNKbU05SlRKR0ptWnNkV2xrUFRFbVlUMU1iMjl3UVhCd0puQTlKVFF3Wm14MWFXUjRKVEpHYkc5dmNDMXdZV2RsTFdOdmJuUmhhVzVsY2clM0QlM0QiLCJyIjpmYWxzZX0sImkiOnsiaSI6IjI1ZjY0YWI0LTZhMGUtNGUzNy05MDgyLTBmMTllZmNhNWRiMiJ9fQ",
+      "order": 1
+    },
+    {
+      "id": "planejamento-qa",
+      "title": "Planejamento QA",
+      "description": "Planilha de planejamento do time",
+      "url": "https://alliagetech-my.sharepoint.com/:x:/r/personal/kayo_silveira_alliage-tech_com/Documents/Planejamento%20QA.xlsx?d=w6ebff95424f443d7b36d1b69fdd855f9&csf=1&web=1&e=fIWHcw",
+      "order": 2
+    },
+    {
+      "id": "report-qa",
+      "title": "REPORT QA",
+      "description": "Planilha de reports do QA",
+      "url": "https://alliagetech-my.sharepoint.com/:x:/r/personal/renato_filho_alliage-tech_com/Documents/REPORT%20QA%20.xlsx?d=we6b2ca5443e44d5f8336280d0dc003f6&csf=1&web=1&e=1eKEcg",
+      "order": 3
+    }
+  ]
+}

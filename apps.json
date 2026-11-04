@@ -1,0 +1,70 @@
+{
+  "groups": [
+    {
+      "name": "Eagle.SCAN",
+      "description": "Análises de malha e oclusão",
+      "color": "#2dd4bf",
+      "order": 1
+    },
+    {
+      "name": "EagleEDGE",
+      "description": "Calibração e qualidade de imagem",
+      "color": "#a78bfa",
+      "order": 2
+    }
+  ],
+  "apps": [
+    {
+      "id": "erro-malha",
+      "folder": "ErroMalha",
+      "name": "Erro de Malha",
+      "description": "Eagle - Análise de Erro de Escaneamento: calcula o erro dos escaneamentos em relação a uma malha de referência.",
+      "group": "Eagle.SCAN",
+      "iconKey": "mesh",
+      "order": 1,
+      "silentArgs": "/S",
+      "uninstallKey": "EagleAnaliseErro",
+      "exe": "AnaliseErro.exe",
+      "installedPath": "%LOCALAPPDATA%\\Programs\\Eagle Analise de Erro\\AnaliseErro.exe"
+    },
+    {
+      "id": "erro-oclusao",
+      "folder": "ErroOclusao",
+      "name": "Erro de Oclusão",
+      "description": "Eagle - Análise de Oclusão: com maxila e mandíbula em oclusão, calcula automaticamente o pico de penetração.",
+      "group": "Eagle.SCAN",
+      "iconKey": "occlusion",
+      "order": 2,
+      "silentArgs": "/S",
+      "uninstallKey": "EagleAnaliseOclusao",
+      "exe": "AnaliseOclusao.exe",
+      "installedPath": "%LOCALAPPDATA%\\Programs\\Eagle Analise de Oclusao\\AnaliseOclusao.exe"
+    },
+    {
+      "id": "calibracao-automatica",
+      "folder": "CalibracaoAutomatica",
+      "name": "Calibração Automática",
+      "description": "Automação EDGE: menu das automações (calibração, EagleEye, disparador remoto, teste de feixe).",
+      "group": "EagleEDGE",
+      "iconKey": "calibration",
+      "order": 1,
+      "silentArgs": "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-",
+      "uninstallKey": "{8F3A6C21-4D5E-4B7A-9C13-7E2A5B904D18}_is1",
+      "exe": "MenuAutomacoes.exe",
+      "installedPath": [
+        "%ProgramFiles%\\Automacao EDGE\\MenuAutomacoes.exe",
+        "%LOCALAPPDATA%\\Programs\\Automacao EDGE\\MenuAutomacoes.exe"
+      ]
+    },
+    {
+      "id": "mtf-automatico",
+      "folder": "MTFAutomatico",
+      "name": "MTF Automático",
+      "description": "Cálculo automático de MTF do EagleEDGE.",
+      "group": "EagleEDGE",
+      "iconKey": "mtf",
+      "order": 2,
+      "silentArgs": "/S"
+    }
+  ]
+}
