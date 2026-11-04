@@ -29,6 +29,23 @@ if (-not (Get-Command gh -ErrorAction SilentlyContinue)) {
 gh auth status *> $null
 if ($LASTEXITCODE -ne 0) { gh auth login }
 
+# Confere acesso ao repositório antes de enviar centenas de MB
+$info = gh repo view $Repo --json visibility,viewerPermission 2>$null | ConvertFrom-Json
+if (-not $info) {
+  Write-Host "Não consegui acessar $Repo com o login atual do GitHub CLI." -ForegroundColor Red
+  Write-Host 'Rode:  gh auth refresh -h github.com -s repo   (ou: gh auth logout  e depois  gh auth login  escolhendo "Login with a web browser")' -ForegroundColor Yellow
+  exit 1
+}
+if ($info.viewerPermission -notin 'ADMIN', 'MAINTAIN', 'WRITE') {
+  Write-Host "O login atual só tem permissão $($info.viewerPermission) em $Repo; é preciso WRITE ou ADMIN." -ForegroundColor Red
+  Write-Host 'Rode:  gh auth refresh -h github.com -s repo' -ForegroundColor Yellow
+  exit 1
+}
+if ($info.visibility -ne 'PUBLIC') {
+  Write-Host "Atenção: $Repo está $($info.visibility). O QApp precisa dele PÚBLICO para baixar os instaladores." -ForegroundColor Yellow
+  Write-Host "Mude em: https://github.com/$Repo/settings  (Danger Zone > Change visibility > Public)" -ForegroundColor Yellow
+}
+
 $apps = (Get-Content -Raw -Encoding UTF8 (Join-Path $PSScriptRoot 'apps.json') | ConvertFrom-Json).apps
 $porPasta = @{}
 foreach ($a in $apps) { if ($a.folder) { $porPasta[$a.folder.ToLower()] = $a } }
@@ -38,6 +55,7 @@ $pastaSWs = Join-Path $PSScriptRoot 'SWs'
 if (-not (Test-Path $pastaSWs)) { Write-Host "Pasta não encontrada: $pastaSWs" -ForegroundColor Red; exit 1 }
 
 $publicados = 0
+$erros = 0
 foreach ($dir in Get-ChildItem -Path $pastaSWs -Directory) {
   $app = $porPasta[$dir.Name.ToLower()]
   if (-not $app) {
@@ -64,9 +82,10 @@ foreach ($dir in Get-ChildItem -Path $pastaSWs -Directory) {
   if ($PreRelease) { $extra += '--prerelease' }
   gh release create $tag $melhor.FullName --repo $Repo --title "$($app.name) $ver" --notes "Instalador $($melhor.Name)" @extra
   if ($LASTEXITCODE -eq 0) { Write-Host "  ok  $tag publicado" -ForegroundColor Green; $publicados++ }
-  else { Write-Host "  erro ao publicar $tag" -ForegroundColor Red }
+  else { Write-Host "  erro ao publicar $tag" -ForegroundColor Red; $erros++ }
 }
 Write-Host ''
 if ($publicados) { Write-Host "$publicados versão(ões) publicada(s). O QApp do time atualiza em até 5 minutos." -ForegroundColor Green }
-else { Write-Host 'Nada novo para publicar.' }
+if ($erros) { Write-Host "$erros erro(s) ao publicar — veja as mensagens acima." -ForegroundColor Red }
+if (-not $publicados -and -not $erros) { Write-Host 'Nada novo para publicar.' }
 Write-Host "Releases: https://github.com/$Repo/releases"
