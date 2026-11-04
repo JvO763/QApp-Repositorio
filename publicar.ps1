@@ -65,12 +65,15 @@ foreach ($dir in Get-ChildItem -Path $pastaSWs -Directory) {
   # instalador de maior versão da pasta
   $melhor = $null; $melhorVer = $null
   foreach ($f in Get-ChildItem -Path $dir.FullName -File | Where-Object { $_.Extension -in '.exe', '.msi' }) {
-    if ($f.Name -match '(\d+(\.\d+){1,3})\.(exe|msi)$') {
-      $v = [version]$Matches[1]
-      if (-not $melhorVer -or $v -gt $melhorVer) { $melhor = $f; $melhorVer = $v }
+    $v = $null
+    if ($f.Name -match '(\d+(\.\d+){1,3})\.(exe|msi)$') { $v = [version]$Matches[1] }
+    elseif ($f.Name -match '(?i)v(\d+)[._](\d+)(?:[._](\d+))?') {  # ex.: ..._V2_3_... -> 2.3
+      $txt = "$($Matches[1]).$($Matches[2])"; if ($Matches[3]) { $txt += ".$($Matches[3])" }
+      $v = [version]$txt
     }
+    if ($v -and (-not $melhorVer -or $v -gt $melhorVer)) { $melhor = $f; $melhorVer = $v }
   }
-  if (-not $melhor) { Write-Host "  --  $($app.name): nenhum instalador com versão no nome (ex.: Setup_1.2.0.exe)" -ForegroundColor DarkGray; continue }
+  if (-not $melhor) { Write-Host "  --  $($app.name): nenhum arquivo com versão no nome (ex.: Setup_1.2.0.exe ou App_V2_3.exe)" -ForegroundColor DarkGray; continue }
 
   $ver = $melhorVer.ToString()
   $tag = "$($app.id)-v$ver"

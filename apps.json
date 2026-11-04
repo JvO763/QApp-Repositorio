@@ -60,11 +60,12 @@
       "id": "mtf-automatico",
       "folder": "MTFAutomatico",
       "name": "MTF Automático",
-      "description": "Cálculo automático de MTF do EagleEDGE.",
+      "description": "Calculadora de MTF por borda inclinada (slanted edge), compatível com o SE_MTF do ImageJ; gera relatório em PDF.",
       "group": "EagleEDGE",
       "iconKey": "mtf",
       "order": 2,
-      "silentArgs": "/S"
+      "type": "portable",
+      "exe": "MTF_Automatico.exe"
     }
   ]
 }

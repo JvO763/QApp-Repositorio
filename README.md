@@ -14,7 +14,7 @@ Este repositório alimenta o **QApp** de todo o time:
 ## Publicar uma versão nova de um SW
 
 1. Coloque o instalador novo na pasta do SW, com a versão no nome:
-   `SWs\ErroMalha\EagleAnaliseErro_Setup_1.3.0.exe`
+   `SWs\ErroMalha\EagleAnaliseErro_Setup_1.3.0.exe` (também vale `..._V2_4_...exe`)
 2. Rode o script (clique direito na pasta do repositório → *Abrir no Terminal*):
    ```powershell
    powershell -ExecutionPolicy Bypass -File .\publicar.ps1
@@ -32,7 +32,7 @@ Precisa do GitHub CLI uma vez: `winget install --id GitHub.cli` (na primeira exe
 | `ErroMalha` | `erro-malha` |
 | `ErroOclusao` | `erro-oclusao` |
 | `CalibracaoAutomatica` | `calibracao-automatica` |
-| `MTFAutomatico` | `mtf-automatico` |
+| `MTFAutomatico` | `mtf-automatico` (portátil: o `.exe` roda sem instalar) |
 
 ## Adicionar um SW novo
 
