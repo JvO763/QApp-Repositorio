@@ -3,3 +3,5 @@ SWs/
 *.exe
 *.msi
 *.zip
+# arquivos que o Claude entrega (podem ter dados de bugs): nunca versionar
+Claude outputs/
