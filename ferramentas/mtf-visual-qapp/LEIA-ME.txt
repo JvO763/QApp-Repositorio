@@ -1,0 +1,16 @@
+Visual do QApp no MTF Automatico
+================================
+
+O codigo-fonte do MTF nao esta disponivel, so o .exe. Por isso o visual e aplicado
+"por fora": o reempacotar_mtf.py troca so o script de entrada do .exe por um envelope
+que (1) aplica o tema do QApp no tkinter e (2) roda o bytecode ORIGINAL do MTF, sem
+nenhuma alteracao. Bibliotecas, DLLs, calculos e relatorios continuam identicos.
+
+- Graficos na janela: tema escuro. Ao salvar (PNG/PDF/relatorio) as cores originais
+  voltam durante o salvamento, entao os arquivos saem exatamente como antes.
+- A barra de menus (Arquivo / Protocolo) e os seletores de arquivo sao do Windows e
+  continuam claros.
+
+Quando sair uma versao nova do MTF: arraste o .exe novo para cima de
+aplicar_visual_QApp.bat. Ele publica a versao com o visual no OneDrive.
+Precisa do Python 3.12 (o mesmo do executavel).
