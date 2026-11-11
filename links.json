@@ -27,6 +27,13 @@
       "url": "\\\\192.168.90.1\\AlliageTech\\QA",
       "description": "Pasta do QA no NAS",
       "order": 4
+    },
+    {
+      "id": "ada137e301",
+      "title": "Benchmark Concorrentes - PAN/TELE/TOMO",
+      "url": "https://alliagetech-my.sharepoint.com/:w:/g/personal/joao_oliveira_alliage-tech_com/IQD1m0HqTkzeSKdmLNBe7SP3AeDDYLxgNW-RRTSBvHHjBqI?e=mAMqWJ",
+      "description": "",
+      "order": 5
     }
   ]
 }
